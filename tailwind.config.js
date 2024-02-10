@@ -7,11 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
-      'heading-clr': 'hsl(220, 13%, 13%)',
+      'text-heading-clr': 'hsl(220, 13%, 13%)',
       'text-clr': 'hsl(220, 14%, 75%)',
-      'nav-items-color': 'hsl(223, 64%, 98%)',
-      'accent-clr': 'hsl(26, 100%, 55%)',
-      'accent-light': 'hsl(25, 100%, 94%)'
+      'text-nav-items-color': 'hsl(223, 64%, 98%)',
+      'text-accent-clr': 'hsl(26, 100%, 55%)',
+      'text-accent-light': 'hsl(25, 100%, 94%)'
 
     },},
   },
