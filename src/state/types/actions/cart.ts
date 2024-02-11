@@ -1,4 +1,4 @@
-export interface CartItem {
+export interface CartItemType {
   discounted_price: number;
   final_price: number;
   id: number;
@@ -8,5 +8,5 @@ export interface CartItem {
   thumbnail: string;
 }
 export interface CartState {
-  items: CartItem[];
+  items: CartItemType[];
 }
