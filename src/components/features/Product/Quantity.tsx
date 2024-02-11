@@ -1,9 +1,9 @@
 import { FormEvent, useState } from "react";
 import { ProductType } from "../../../state/types/productType";
-import { CartItem } from "../../../state/types/actions/cart";
 import { useAppDispatch } from "../../../state/store";
 import { addToCart } from "../../../state/Cart/CartSlice";
 import { useAppSelector } from "../../../state/hook";
+import { CartItemType } from "../../../state/types/actions/cart";
 
 const Quantity: React.FC<{ product: ProductType }> = ({ product }) => {
   const [quantity, setQuantity] = useState<number>(0);
@@ -22,18 +22,19 @@ const Quantity: React.FC<{ product: ProductType }> = ({ product }) => {
 
   function handleSumbit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const newCartItem: CartItem = {
+    const newCartItemType: CartItemType = {
       id: product.id,
       discounted_price: product.discounted_price,
       name: product.name,
       quantity: quantity,
       price: product.price,
       thumbnail: product.thumbnails[0],
-      final_price: product.discounted_price * quantity,
+      final_price:
+        product.discounted_price * quantity || product.price * quantity,
     };
     if (!quantity) return;
 
-    dispatch(addToCart(newCartItem));
+    dispatch(addToCart(newCartItemType));
   }
 
   return (
