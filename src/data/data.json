@@ -1,32 +1,40 @@
 {
   "sneakers": [
     {
+      "id": 1,
       "name": "Fall Limited Edition Sneakers",
       "description": "These low-profile sneakers are your perfect casual wear companion.Featuring a durable rubber outer sole, they 'll withstand everything the weather can offer.",
-      "price": 125,
+      "price": 250,
       "onDiscount": true,
-      "discountAmount": 0.5
+      "discountAmount": 0.5,
+      "manufacturer": "sneakers"
     },
     {
+      "id": 2,
       "name": "Urban Hiker High-Tops",
       "description": "Designed for the city explorer, these high-top sneakers blend style and functionality seamlessly. With a rugged yet lightweight construction, they're ready to tackle any urban adventure.",
       "price": 150,
       "onDiscount": true,
-      "discountAmount": 0.3
+      "discountAmount": 0.3,
+      "manufacturer": "sneakers"
     },
     {
+      "id": 3,
       "name": "Retro Runner Classic",
       "description": "Step back in time with these retro-inspired running shoes. Crafted with premium materials and enhanced cushioning, they offer both comfort and nostalgia for your everyday outings.",
       "price": 100,
       "onDiscount": false,
-      "discountAmount": null
+      "discountAmount": null,
+      "manufacturer": "sneakers"
     },
     {
+      "id": 4,
       "name": "TechFit Performance Sneakers",
       "description": "Engineered for peak performance, these sneakers feature advanced TechFit technology to provide optimal support and stability. Whether you're hitting the gym or pounding the pavement, these shoes have you covered.",
       "price": 180,
       "onDiscount": true,
-      "discountAmount": 0.2
+      "discountAmount": 0.2,
+      "manufacturer": "sneakers"
     }
   ]
 }
