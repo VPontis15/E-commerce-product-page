@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 
 interface LayoutProps {
   children: ReactNode;
@@ -6,7 +6,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className=" text-accent-light font-ff-main max-w-[75rem] py-8 mx-auto">
+    <div className=" mx-auto max-w-[75rem] p-8 font-ff-main text-main">
       {children}
     </div>
   );
