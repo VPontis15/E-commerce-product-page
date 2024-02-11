@@ -14,8 +14,17 @@ async function getProducts(): Promise<Products> {
       `http://localhost:3001/sneakers`,
     );
     const data = response.data;
+    const updatedData = data.map((product: ProductType) => {
+      if (product.onDiscount) {
+        return {
+          ...product,
+          discounted_price:
+            product.price - product.price * product.discountAmount,
+        };
+      } else return product;
+    });
 
-    return data;
+    return updatedData;
   } catch (error) {
     console.error("Error fetching products:", error);
     throw new Error("Failed to fetch products");
@@ -39,7 +48,7 @@ const ProductColumn: React.FC = () => {
         <>
           {" "}
           <Product product={currentProduct} />
-          <Quantity />
+          <Quantity product={currentProduct} />
         </>
       )}
     </section>

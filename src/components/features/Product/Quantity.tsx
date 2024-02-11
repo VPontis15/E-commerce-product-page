@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
+import { ProductType } from "../../../state/types/productType";
+import { CartItem } from "../../../state/types/actions/cart";
+import { useAppDispatch } from "../../../state/store";
+import { addToCart } from "../../../state/Cart/CartSlice";
+import { useAppSelector } from "../../../state/hook";
 
-const Quantity: React.FC = () => {
+const Quantity: React.FC<{ product: ProductType }> = ({ product }) => {
   const [quantity, setQuantity] = useState<number>(0);
-
+  const items = useAppSelector((state) => state.cart.items);
+  const dispatch = useAppDispatch();
   function increaseQuantity() {
     setQuantity((prev) => prev + 1);
   }
@@ -12,6 +18,22 @@ const Quantity: React.FC = () => {
     if (quantity <= 0) {
       setQuantity(0);
     }
+  }
+
+  function handleSumbit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const newCartItem: CartItem = {
+      id: product.id,
+      discounted_price: product.discounted_price,
+      name: product.name,
+      quantity: quantity,
+      price: product.price,
+      thumbnail: product.thumbnails[0],
+      final_price: product.discounted_price * quantity,
+    };
+    if (!quantity) return;
+
+    dispatch(addToCart(newCartItem));
   }
 
   return (
@@ -28,9 +50,7 @@ const Quantity: React.FC = () => {
         </div>
         <form
           className="rounded-lg bg-accent-clr px-12 py-2"
-          onSubmit={(e) => {
-            e.preventDefault();
-          }}
+          onSubmit={(e) => handleSumbit(e)}
           method="post"
         >
           <button className="inline-flex items-center justify-center gap-4    text-white">

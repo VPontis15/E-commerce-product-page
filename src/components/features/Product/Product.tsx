@@ -8,14 +8,11 @@ const Product: React.FC<{ product: ProductType }> = ({ product }) => {
       </h4>
       <h1 className=" text-4xl font-bold text-heading-clr">{product.name}</h1>
       <p className="mt-6">{product.description}</p>
-      {product.onDiscount ? (
+      {product.discounted_price ? (
         <>
           <div className="mt-6 flex items-center gap-4">
             <span className="text-2xl font-bold text-heading-clr">
-              $
-              {(product.price - product.price * product.discountAmount).toFixed(
-                2,
-              )}
+              ${product.discounted_price.toFixed(2)}
             </span>
 
             <span className="rounded-md bg-accent-light px-2 font-semibold text-accent-clr ">
@@ -27,9 +24,11 @@ const Product: React.FC<{ product: ProductType }> = ({ product }) => {
           </span>
         </>
       ) : (
-        <span className="text-2xl font-bold text-heading-clr">
-          ${product.price.toFixed(2)}
-        </span>
+        <div className="mt-6">
+          <span className=" text-2xl font-bold text-heading-clr">
+            ${product.price.toFixed(2)}
+          </span>
+        </div>
       )}
     </>
   );
