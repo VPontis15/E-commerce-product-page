@@ -1,54 +1,15 @@
-import axios from "axios";
-import { UseQueryResult, useQuery } from "react-query";
 import { ProductType } from "../../state/types/productType";
 import Product from "./Product/Product";
 import Quantity from "./Product/Quantity";
 
-interface Products {
-  products: ProductType[];
-}
-
-async function getProducts(): Promise<Products> {
-  try {
-    const response = await axios.get<Products>(
-      `http://localhost:3001/sneakers`,
-    );
-    const data = response.data;
-    const updatedData = data.map((product: ProductType) => {
-      if (product.onDiscount) {
-        return {
-          ...product,
-          discounted_price:
-            product.price - product.price * product.discountAmount,
-        };
-      } else return product;
-    });
-
-    return updatedData;
-  } catch (error) {
-    console.error("Error fetching products:", error);
-    throw new Error("Failed to fetch products");
-  }
-}
-
-const ProductColumn: React.FC = () => {
-  const queryKey = "sneakers";
-  const queryFn = getProducts;
-
-  const { data, error, isLoading }: UseQueryResult<ProductType[], Error> =
-    useQuery(queryKey, queryFn);
-
-  if (isLoading) return <span>Loading...</span>;
-  if (error) return <span>{error.message}</span>;
-  const currentProduct = data[0];
-
+const ProductColumn: React.FC<{ product: ProductType }> = ({ product }) => {
   return (
     <section className="">
-      {currentProduct && (
+      {product && (
         <>
           {" "}
-          <Product product={currentProduct} />
-          <Quantity product={currentProduct} />
+          <Product product={product} />
+          <Quantity product={product} />
         </>
       )}
     </section>
