@@ -38,15 +38,15 @@ const Quantity: React.FC<{ product: ProductType }> = ({ product }) => {
   }
 
   return (
-    <div className="flex items-center">
-      <div className="mt-6 flex gap-6">
-        <div className=" flex items-center gap-4 rounded-md bg-blue-50">
+    <div className="flex flex-col items-center justify-center  md:flex-row md:justify-start">
+      <div className="mt-6 flex flex-col gap-6 md:flex-row">
+        <div className=" flex items-center justify-center gap-4 rounded-md bg-blue-100">
           <button onClick={() => decreaseQuantity()} className=" p-4">
             <img src="src\assets\images\icon-minus.svg" alt="" />
           </button>
           <span className="">{quantity}</span>
           <button onClick={() => increaseQuantity()} className=" p-4">
-            <img src="src\assets\images\icon-plus.svg" alt="" />
+            <img className="" src="src\assets\images\icon-plus.svg" alt="" />
           </button>
         </div>
         <form
@@ -62,7 +62,7 @@ const Quantity: React.FC<{ product: ProductType }> = ({ product }) => {
                 fillRule="nonzero"
               />
             </svg>
-            <span>Add to Cart</span>
+            <span className="f">Add to Cart</span>
           </button>
         </form>
       </div>

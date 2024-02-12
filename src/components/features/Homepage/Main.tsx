@@ -44,7 +44,7 @@ const Main: React.FC = () => {
   if (error) return <span>{error.message}</span>;
   const currentProduct = data[0];
   return (
-    <main className=" grid h-full min-h-[80vh] grid-cols-2 items-center    px-10">
+    <main className=" mt-24 grid h-full min-h-[80vh] items-center justify-center px-10    lg:grid-cols-2">
       <ProductImages product={currentProduct} />
       <ProductColumn product={currentProduct} />
     </main>
