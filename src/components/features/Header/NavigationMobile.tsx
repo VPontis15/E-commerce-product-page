@@ -1,4 +1,8 @@
-const NavigationMobile: React.FC<{ onCloseHamburgerModal: boolean }> = ({
+interface NavigationMobileProps {
+  onCloseHamburgerModal: () => void;
+}
+
+const NavigationMobile: React.FC<NavigationMobileProps> = ({
   onCloseHamburgerModal,
 }) => {
   return (

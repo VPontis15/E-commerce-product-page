@@ -1,6 +1,10 @@
 import { ProductType } from "../../../state/types/productType";
 
-const Product: React.FC<{ product: ProductType }> = ({ product }) => {
+interface ProductProps {
+  product: ProductType;
+}
+
+const Product: React.FC<ProductProps> = ({ product }) => {
   return (
     <>
       <h4 className="mb-4 mt-8 text-center text-xs font-semibold uppercase tracking-[2px] text-accent-clr  md:text-left md:text-1xs lg:mt-0">

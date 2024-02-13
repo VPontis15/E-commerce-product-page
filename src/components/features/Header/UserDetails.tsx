@@ -58,7 +58,7 @@ const UserDetails: React.FC = () => {
       {isOpen && (
         <CartModal>
           <div
-            className=" absolute right-20 top-20 z-[1000] flex min-h-64 w-full max-w-80 flex-col overflow-y-scroll bg-white  py-6 shadow-2xl"
+            className=" absolute right-20 top-20 z-[1000] flex min-h-64 w-full max-w-80 flex-col overflow-y-auto bg-white  py-6 shadow-2xl"
             ref={modalRef}
           >
             <span className="border-b-2 p-4  font-semibold  text-heading-clr">

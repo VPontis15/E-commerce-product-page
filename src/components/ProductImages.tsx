@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { ProductType } from "../state/types/productType";
 
-const ProductImages: React.FC<{ product: ProductType }> = ({ product }) => {
+interface ProductImagesProps {
+  product: ProductType;
+}
+
+const ProductImages: React.FC<ProductImagesProps> = ({ product }) => {
   const [selectedImage, setSelectedImage] = useState<string>(product.images[0]);
   function handleSelectedImage(image: string) {
     setSelectedImage(image);

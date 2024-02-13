@@ -2,12 +2,14 @@ import { FormEvent, useState } from "react";
 import { ProductType } from "../../../state/types/productType";
 import { useAppDispatch } from "../../../state/store";
 import { addToCart } from "../../../state/Cart/CartSlice";
-import { useAppSelector } from "../../../state/hook";
 import { CartItemType } from "../../../state/types/actions/cart";
 
-const Quantity: React.FC<{ product: ProductType }> = ({ product }) => {
+interface QuantityProps {
+  product: ProductType;
+}
+
+const Quantity: React.FC<QuantityProps> = ({ product }) => {
   const [quantity, setQuantity] = useState<number>(0);
-  const items = useAppSelector((state) => state.cart.items);
   const dispatch = useAppDispatch();
   function increaseQuantity() {
     setQuantity((prev) => prev + 1);
